@@ -53,3 +53,6 @@ python Universe.py
     - 画像を保存する際はグラフの左上にあるツールバーの右端にある保存アイコンをクリックしてください．
     - 保存先を選択し，名前を入力すれば完了です．
 <img width="634" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/9898378a-0f1a-40de-a39d-bba96b880fbf">
+
+8. アプリの終了
+    - アプリを終了する際は，右上の✕をクリックするか，実行ボタンの隣にある中止ボタンをクリックしてください．
