@@ -15,7 +15,12 @@ pip install -r requirements.txt
 ```
 - Universe.pyを起動します．
 ```
-Universe.py
+python Universe.py
 ```
 
 # 使用方法
+1. 設定ファイルの読み込み
+アプリケーションの起動後，まず設定ファイル（config.ini）を読み込みます．設定ファイルは「Universe.py」と同じ階層に含まれています．
+
+<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/07c4937d-7518-4e47-b716-da6520a0f404">
+
