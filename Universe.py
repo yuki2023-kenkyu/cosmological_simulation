@@ -30,14 +30,12 @@ class EventHandlers:
         self.z_new = None
 
     def handle_file_event(self, values):
-        # 設定ファイルを読み込む準備
         file_path = values["-FILE-"]
         self.config_ini.read(file_path, encoding='utf-8')
         model_name = self.config_ini.sections()
         self.window["-MODEL-"].Update(values=model_name)
 
     def handle_model_event(self, values):
-        # 選択されたモデルに応じて初期値を設定
         model = str(values["-MODEL-"])
         default_sigma = float(self.config_ini.get(model, "sigma_0"))
         default_q = float(self.config_ini.get(model, "q_0"))
@@ -47,23 +45,18 @@ class EventHandlers:
         self.window["-Q-TEXT-"].Update(default_q)
 
     def handle_sigma_event(self, values):
-        # スライダーの値をテキストに反映
         self.window["-SIGMA-TEXT-"].Update(values["-SIGMA-"])
 
     def handle_q_event(self, values):
-        # スライダーの値をテキストに反映
         self.window["-Q-TEXT-"].Update(values["-Q-"])
 
     def handle_sigma_text_event(self, values):
-        # テキストの値をスライダーに反映
         self.window["-SIGMA-"].Update(values["-SIGMA-TEXT-"])
 
     def handle_q_text_event(self, values):
-        # テキストの値をスライダーに反映
         self.window["-Q-"].Update(values["-Q-TEXT-"])
 
     def handle_execute_event(self, values):
-        # 計算実行ボタンが押されたときの処理
         sigma_0 = float(values["-SIGMA-TEXT-"])
         q_0 = float(values["-Q-TEXT-"])
         K = np.sign(3 * sigma_0 - q_0 - 1.0)
@@ -72,28 +65,22 @@ class EventHandlers:
         elev = float(values["-ELEV-"])
         azim = float(values["-AZIM-"])
 
-        # フリードマン方程式を数値積分して座標を計算
         instance = FriedmannEquationIntegrator(Friedmann_Equation, rotate_coordinates, sigma_0, q_0, K, Lambda)
         self.x_new, self.y_new, self.z_new = instance.calculate_rotated_coordinates()
         sg.popup_ok('計算が実行されました。')
 
     def handle_plot_event(self, elev, azim):
-        # グラフ表示ボタンが押されたときの処理
         if self.x_new is not None and self.y_new is not None and self.z_new is not None:
             fig_3d = draw_plot(elev, azim, self.x_new, self.y_new, self.z_new)
             draw_figure_w_toolbar(self.window['-CANVAS-'].TKCanvas, fig_3d, self.window['-CONTROLS-'].TKCanvas)
         else:
             sg.popup_error('実行ボタンを先にクリックしてください。')
 
-
 def main():
     Widget.make_dpi_aware()
     window = Widget.create_main_window()
-
-    # 設定ファイルの読み込み
     config_ini = configparser.ConfigParser()
 
-    # イベントハンドラーオブジェクトの作成
     handlers = EventHandlers(window, config_ini)
 
     while True:
@@ -103,8 +90,8 @@ def main():
             sg.popup_ok('中止しました。')
             break
 
-        # 各イベントごとの処理をイベントハンドラークラス内のメソッドに移動
-        handlers.handle_file_event(values)
+        elif event == "-FILE-":
+            handlers.handle_file_event(values)
 
         elif event == "-MODEL-":
             handlers.handle_model_event(values)
@@ -128,7 +115,6 @@ def main():
             handlers.handle_plot_event(float(values["-ELEV-"]), float(values["-AZIM-"]))
 
     window.close()
-
 
 if __name__ == "__main__":
     main()
