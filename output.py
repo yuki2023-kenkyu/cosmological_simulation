@@ -58,4 +58,7 @@ def draw_plot(elev, azim, x, y, z):
                            ccount=101,
                            antialiased=False,
                            shade=True)
+    
+    # カラーバーを表示
+    cbar = fig.colorbar(surf, shrink = 0.75)
     return fig
