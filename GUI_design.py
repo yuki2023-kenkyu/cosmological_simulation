@@ -5,18 +5,20 @@ import platform
 
 class Widget:
     
-    """DPIに関連する問題を修正するための関数"""
     @staticmethod
     def make_dpi_aware():
-        
+        """
+        DPIに関連する問題を修正するための関数
+        """
         if int(platform.release()) >= 8:
             ctypes.windll.shcore.SetProcessDpiAwareness(True)
     
     
-    """メインウィンドウのレイアウトを定義する関数"""
     @staticmethod
     def create_main_window():
-        
+        """
+        メインウィンドウのレイアウトを定義する関数
+        """
         file_selection_layout = [
             [sg.Text("設定ファイルを選択: ")],
             [sg.Text("モデルを選択: ")]
