@@ -13,9 +13,9 @@ python -m venv myvenv
 myvenv\scripts\activate
 pip install -r requirements.txt
 ```
-- Universe.pyを起動します．
+- universe.pyを起動します．
 ```
-python Universe.py
+python universe.py
 ```
 
 # 使用方法
