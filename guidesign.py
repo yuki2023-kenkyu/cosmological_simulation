@@ -40,7 +40,6 @@ class Widget:
 
         parameter_text_layout = [
             [sg.Text("sigma_0:")],
-            [sg.Text(text="", visible=False)],
             [sg.Text("q_0:")]
         ]
 
@@ -52,10 +51,9 @@ class Widget:
         ]
 
         parameter_view_layout = [
-            [sg.InputText(size=(7, 1), key="-SIGMA-TEXT-",
+            [sg.InputText(default_text="0.00", size=(7, 1), key="-SIGMA-TEXT-",
                           enable_events=True)],
-            [sg.Text(text="", visible=False)],
-            [sg.InputText(size=(7, 1), key="-Q-TEXT-", enable_events=True)]
+            [sg.InputText(default_text="0.00", size=(7, 1), key="-Q-TEXT-", enable_events=True)]
         ]
 
         figure_canvas_control = [sg.Canvas(key='-CONTROLS-')]
