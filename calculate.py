@@ -1,16 +1,19 @@
 import numpy as np
 from scipy.integrate import solve_ivp
 
-"""フリードマン方程式の定義（※変更しないでください）"""
 def Friedmann_Equation(time, variables, sigma_0, q_0):
+    """
+    フリードマン方程式の定義（※変更しないでください）
+    """
     Y = variables[0]
     dY_dX = variables[1]
     dA_dX = -sigma_0/Y**2 + (sigma_0 - q_0)*Y
     return [dY_dX, dA_dX]
 
-
-"""座標をZ軸周りに回転変換する関数"""
 def rotate_coordinates(theta, coordinate_matrix):
+    """
+    座標をZ軸周りに回転変換する関数
+    """
     # 回転行列の定義（Z軸周り）
     rotation_matrix = np.array([[np.cos(theta), -np.sin(theta), 0],
                                 [np.sin(theta),  np.cos(theta), 0],
@@ -18,10 +21,10 @@ def rotate_coordinates(theta, coordinate_matrix):
     return rotation_matrix @ coordinate_matrix
 
 
-"""
-数値積分を実行し，グラフ化のためのX,Y,Z座標を計算するためのクラス
-"""
 class FriedmannEquationIntegrator:
+    """
+    数値積分を実行し，グラフ化のためのX,Y,Z座標を計算するためのクラス
+    """
     
     # 積分区間・刻みの設定
     t_min = 0.0
@@ -47,8 +50,10 @@ class FriedmannEquationIntegrator:
         self.K = K
         self.Lambda = Lambda
     
-    """時間の正の方向にフリードマン方程式を積分する関数"""
     def integrate_plus(self):
+        """
+        時間の正の方向にフリードマン方程式を積分する関数
+        """
         sol_plus  = solve_ivp(self.ode_function,
                               self.x_plus,
                               self.initial_variables,
@@ -60,8 +65,10 @@ class FriedmannEquationIntegrator:
                               dense_output=True)
         return sol_plus
     
-    """時間の負の方向にフリードマン方程式を積分する関数"""
     def integrate_minus(self):
+        """
+        時間の負の方向にフリードマン方程式を積分する関数
+        """
         sol_minus = solve_ivp(self.ode_function,
                               self.x_minus,
                               self.initial_variables,
@@ -73,8 +80,10 @@ class FriedmannEquationIntegrator:
                               dense_output=True)
         return sol_minus
     
-    """積分して得られたndarray型の配列を結合し，回転変換前のx,y,z座標を求める関数"""
     def concatenate_sol_array(self):
+        """
+        積分して得られたndarray型の配列を結合し，回転変換前のx,y,z座標を求める関数
+        """
         # クラス内の関数を呼び出して実行
         sol_plus = self.integrate_plus()
         sol_minus = self.integrate_minus()
@@ -86,8 +95,10 @@ class FriedmannEquationIntegrator:
         coordinate = np.array([sol_y, np.zeros(len(sol_t)), sol_t]).reshape(3, len(sol_t))
         return sol_t, sol_y, coordinate
     
-    """回転行列によって変換したX,Y,Z座標を求める関数"""
     def calculate_rotated_coordinates(self):
+        """
+        回転行列によって変換したX,Y,Z座標を求める関数
+        """
         # クラス内の関数を呼び出して実行
         sol_t, sol_y, coordinate = self.concatenate_sol_array()
         # 回転変換後の座標
