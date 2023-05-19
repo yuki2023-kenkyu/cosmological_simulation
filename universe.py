@@ -22,7 +22,7 @@ import numpy as np
 
 from calculate import (
     FriedmannEquationIntegrator,
-    Friedmann_Equation,
+    friedmann_equation,
     rotate_coordinates,
 )
 from guidesign import Widget
