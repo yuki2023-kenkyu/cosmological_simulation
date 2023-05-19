@@ -35,8 +35,8 @@ class FriedmannEquationIntegrator:
     t_true_min = -1.0
 
     # 初期条件
-    x_plus = [t_min, t_max]
-    x_minus = [t_min, t_true_min]
+    time_plus = [t_min, t_max]
+    time_minus = [t_min, t_true_min]
     a_0 = 1.0
     a_dash_0 = 1.0
     initial_variables = np.array([a_0, a_dash_0])
@@ -64,7 +64,7 @@ class FriedmannEquationIntegrator:
         時間の正の方向にフリードマン方程式を積分する関数
         """
         sol_plus = solve_ivp(self.ode_function,
-                             self.x_plus,
+                             self.time_plus,
                              self.initial_variables,
                              method='Radau',
                              t_eval=None,
@@ -79,7 +79,7 @@ class FriedmannEquationIntegrator:
         時間の負の方向にフリードマン方程式を積分する関数
         """
         sol_minus = solve_ivp(self.ode_function,
-                              self.x_minus,
+                              self.time_minus,
                               self.initial_variables,
                               method='Radau',
                               t_eval=None,
