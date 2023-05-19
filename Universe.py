@@ -4,7 +4,7 @@ import PySimpleGUI as sg
 import configparser
 import numpy as np
 
-from calculate import Integrate_FriedmannEq, Friedmann_Equation, coordinate_trans
+from calculate import FriedmannEquationIntegrator, Friedmann_Equation, rotate_coordinates
 from GUI_design import Widget
 from output import draw_figure_w_toolbar, draw_plot
 
@@ -58,17 +58,17 @@ def main():
             elev = float(values["-ELEV-"])
             azim = float(values["-AZIM-"])
             
-            instance = Integrate_FriedmannEq(Friedmann_Equation,
-                                             coordinate_trans,
-                                             sigma_0,
-                                             q_0,
-                                             K,
-                                             Lambda)
-            X_new, Y_new, Z_new = instance.return_new_coordinate()
+            instance = FriedmannEquationIntegrator(Friedmann_Equation,
+                                                   rotate_coordinates,
+                                                   sigma_0,
+                                                   q_0,
+                                                   K,
+                                                   Lambda)
+            x_new, y_new, z_new = instance.calculate_rotated_coordinates()
             sg.popup_ok('計算が実行されました。')  # Shows OK button
             
         elif event=="グラフ表示":
-            fig_3d = draw_plot(elev, azim, X_new, Y_new, Z_new)
+            fig_3d = draw_plot(elev, azim, x_new, y_new, z_new)
             draw_figure_w_toolbar(window['-CANVAS-'].TKCanvas, fig_3d, window['-CONTROLS-'].TKCanvas)
 
 main()
