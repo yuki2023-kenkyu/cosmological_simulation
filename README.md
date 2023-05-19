@@ -15,7 +15,7 @@
 これらのファイルが正しくインポートされていることを確認してください。
 また、設定ファイルも必要であり、適切なフォーマットで提供されている必要があります。
 
-# 始め方
+# インストール方法
 - git clone を行います．
 ```
 git clone https://github.com/yuki2023-kenkyu/cosmological_simulation/
