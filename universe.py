@@ -132,7 +132,7 @@ def main():
     while True:
         event, values = window.read()
 
-        if event == sg.WINDOW_CLOSED or event == "中止":
+        if event in (sg.WINDOW_CLOSED, '中止'):
             sg.popup_ok('中止しました。')
             break
 
