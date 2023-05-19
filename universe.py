@@ -95,7 +95,7 @@ class EventHandlers:
         Lambda = 3 * (sigma_0 - q_0)
 
         instance = FriedmannEquationIntegrator(
-            Friedmann_Equation, rotate_coordinates, sigma_0, q_0, K, Lambda)
+            friedmann_equation, rotate_coordinates, sigma_0, q_0, K, Lambda)
         (self.x_new,
          self.y_new,
          self.z_new) = instance.calculate_rotated_coordinates()
