@@ -11,8 +11,10 @@ class Toolbar(NavigationToolbar2Tk):
         super(Toolbar, self).__init__(*args, **kwargs)
 
 
-"""グラフとツールバーをgui window上のcanvasに描画する関数"""
 def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
+    """
+    回転行列によって変換したX,Y,Z座標を求める関数
+    """
     # グラフとツールバーを更新するために一旦クリアする
     if canvas.children:
         for child in canvas.winfo_children():
@@ -29,8 +31,10 @@ def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
     figure_canvas_agg.get_tk_widget().pack(side='left', fill='both', expand=2)
 
 
-"""figureを作成する関数"""
 def draw_plot(elev, azim, x, y, z):
+    """
+    figureを作成する関数
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     
