@@ -1,19 +1,23 @@
-import PySimpleGUI as sg
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+"""グラフ出力用のモジュール."""
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg,
+    NavigationToolbar2Tk,
+)
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-"""
-グラフツールバーを呼び出すクラス
-"""
+
 class Toolbar(NavigationToolbar2Tk):
+    """
+    グラフツールバーを呼び出すクラス
+    """
     def __init__(self, *args, **kwargs):
-        super(Toolbar, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
 
 def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
     """
-    回転行列によって変換したX,Y,Z座標を求める関数
+    グラフとツールバーを更新しGUI上に描画する関数
     """
     # グラフとツールバーを更新するために一旦クリアする
     if canvas.children:
@@ -36,22 +40,22 @@ def draw_plot(elev, azim, x, y, z):
     figureを作成する関数
     """
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    
+    ax = fig.add_subplot(111, projection=Axes3D.name)
+
     # 視点の変更
     ax.view_init(elev=elev, azim=azim)
-    
+
     # 背景色の変更
     ax.w_xaxis.set_pane_color((0., 0., 0., 0.))
     ax.w_yaxis.set_pane_color((0., 0., 0., 0.))
     ax.w_zaxis.set_pane_color((0., 0., 0., 0.))
-    ax.set_box_aspect((1,1,1))
-    
+    ax.set_box_aspect((1, 1, 1))
+
     # 軸ラベルの設定
     ax.set_xlabel(r'$a_x$')
     ax.set_ylabel(r'$a_y$')
     ax.set_zlabel(r'$cosmic \ time$')
-    
+
     # グラフをプロット
     surf = ax.plot_surface(x,
                            y,
@@ -62,7 +66,7 @@ def draw_plot(elev, azim, x, y, z):
                            ccount=101,
                            antialiased=False,
                            shade=True)
-    
+
     # カラーバーを表示
-    cbar = fig.colorbar(surf, shrink = 0.75)
+    fig.colorbar(surf, shrink=0.75)
     return fig
