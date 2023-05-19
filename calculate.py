@@ -7,10 +7,10 @@ def friedmann_equation(time, variables, sigma_0, q_0):
     """
     フリードマン方程式の定義（※変更しないでください）
     """
-    scale_factor_y = variables[0]
-    dy_dt = variables[1]
-    ddy_dtdt = -sigma_0/scale_factor_y**2 + (sigma_0 - q_0)*scale_factor_y
-    return [dy_dt, ddy_dtdt]
+    scale_factor_a = variables[0]
+    da_dt = variables[1]
+    dda_dtdt = -sigma_0/scale_factor_a**2 + (sigma_0 - q_0)*scale_factor_a
+    return [da_dt, dda_dtdt]
 
 
 def rotate_coordinates(theta, coordinate_matrix):
@@ -37,9 +37,9 @@ class FriedmannEquationIntegrator:
     # 初期条件
     x_plus = [t_min, t_max]
     x_minus = [t_min, t_true_min]
-    y0 = 1.0
-    y_dash_0 = 1.0
-    initial_variables = np.array([y0, y_dash_0])
+    a_0 = 1.0
+    a_dash_0 = 1.0
+    initial_variables = np.array([a_0, a_dash_0])
 
     # 円周上の点数に関する設定
     num_points = 50
