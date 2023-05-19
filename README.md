@@ -21,7 +21,7 @@ python universe.py
 # 使用方法
 1. 設定ファイルの読み込み
     - アプリケーションの起動後，まず設定ファイルを読み込みます．
-    - 「Browse」ボタンをクリックし，「Universe.py」と同じ階層に含まれている「config.ini」を選択してください．
+    - 「Browse」ボタンをクリックし，「universe.py」と同じ階層に含まれている「config.ini」を選択してください．
 <img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/8c7f497c-3021-4a32-85c0-eaa53918be0c">
 
 2. モデルの選択
