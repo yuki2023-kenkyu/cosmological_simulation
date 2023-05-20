@@ -15,7 +15,7 @@ def friedmann_equation(time, variables, sigma_0, q_0):
 
 def rotate_coordinates(theta, coordinate_matrix):
     """
-    座標をZ軸周りに回転変換する関数
+    座標をz軸周りに回転変換する関数
     """
     # 回転行列の定義（Z軸周り）
     rotation_matrix = np.array([[np.cos(theta), -np.sin(theta), 0],
@@ -107,7 +107,7 @@ class FriedmannEquationIntegrator:
 
     def calculate_rotated_coordinates(self):
         """
-        回転行列によって変換したX,Y,Z座標を求める関数
+        回転行列によって変換したx,y,z座標を求める関数
         """
         # クラス内の関数を呼び出して実行
         sol_t, coordinate = self.concatenate_sol_array()
