@@ -97,11 +97,22 @@ class Widget:
                                     ]
                                ]
                                )
+        
+        frame_theme_choice = sg.Frame('GUIデザインの変更',
+                                     [
+                                         [sg.Listbox(values=sg.theme_list(),
+                                                     size=(10, 3),
+                                                     key='-THEME-LIST-',
+                                                     enable_events=True)
+                                         ],
+                                         [sg.Button('プレビュー'), sg.Button('確定')],
+                                         
+                                     ])
 
         layout = [
             [frame_read_file],
-            [frame_parameter],
-            [frame_graph],
+            [frame_parameter, frame_graph],
+            [frame_theme_choice],
             [sg.Column(run_buttons_layout, justification='c')],
             [figure_canvas_control],
             [figure_canvas]

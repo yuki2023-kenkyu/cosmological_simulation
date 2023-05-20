@@ -39,6 +39,9 @@ def main():
 
         elif event == "-Q-TEXT-":
             handlers.handle_q_text_event(values)
+            
+        elif event == "プレビュー":
+            handlers.theme_view(values)
 
         elif event == "実行":
             handlers.handle_execute_event(values)

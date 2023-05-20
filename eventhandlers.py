@@ -97,3 +97,13 @@ class EventHandlers:
                 self.window['-CONTROLS-'].TKCanvas)
         else:
             sg.popup_error('実行ボタンを先にクリックしてください。')
+
+    def theme_view(self, values):
+        """
+        GUIデザインテーマのプレビュー表示
+        """
+        sg.theme(values['-THEME-LIST-'][0])
+        sg.popup_get_text('This is {}'.format(values['-THEME-LIST-'][0]))
+        
+    def theme_choice(self, values):
+        sg.theme.Update(values['-THEME-LIST-'][0])
