@@ -26,7 +26,7 @@ def rotate_coordinates(theta, coordinate_matrix):
 
 class FriedmannEquationIntegrator:
     """
-    数値積分を実行し，グラフ化のためのX,Y,Z座標を計算するためのクラス
+    数値積分を実行し，グラフ化のためのx,y,z座標を計算するためのクラス
     """
 
     # 積分区間・刻みの設定
