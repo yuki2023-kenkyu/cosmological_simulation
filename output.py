@@ -4,7 +4,9 @@ from matplotlib.backends.backend_tkagg import (
     NavigationToolbar2Tk,
 )
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ptick
 from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
 
 
 class Toolbar(NavigationToolbar2Tk):
@@ -35,15 +37,12 @@ def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
     figure_canvas_agg.get_tk_widget().pack(side='left', fill='both', expand=2)
 
 
-def draw_plot(elev, azim, x, y, z):
+def draw_plot(x, y, z):
     """
     figureを作成する関数
     """
     fig = plt.figure()
     ax = fig.add_subplot(111, projection=Axes3D.name)
-
-    # 視点の変更
-    ax.view_init(elev=elev, azim=azim)
 
     # 背景色の変更
     ax.w_xaxis.set_pane_color((0., 0., 0., 0.))
@@ -55,6 +54,15 @@ def draw_plot(elev, azim, x, y, z):
     ax.set_xlabel(r'$a_x$')
     ax.set_ylabel(r'$a_y$')
     ax.set_zlabel(r'$cosmic \ time$')
+    
+    # 目盛りの値の表示を指数表記に変更
+    max_number_of_digits = len(str(int(np.max(x))))
+    ax.xaxis.set_major_formatter(ptick.ScalarFormatter(useMathText=True))
+    ax.yaxis.set_major_formatter(ptick.ScalarFormatter(useMathText=True))
+    ax.ticklabel_format(style="sci", axis="x", scilimits=(max_number_of_digits, 
+                                                          max_number_of_digits))
+    ax.ticklabel_format(style="sci", axis="y", scilimits=(max_number_of_digits,
+                                                          max_number_of_digits))
 
     # グラフをプロット
     surf = ax.plot_surface(x,

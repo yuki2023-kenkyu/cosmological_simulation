@@ -57,7 +57,7 @@ class Widget:
         ]
 
         figure_canvas_control = [sg.Canvas(key='-CONTROLS-')]
-        figure_canvas = [sg.Canvas(key='-CANVAS-', size=(1500, 700))]
+        figure_canvas = [sg.Canvas(key='-CANVAS-', size=(500, 500))]
 
         run_buttons_layout = [
             [sg.Submit('実行'), sg.Cancel('中止'), sg.Button('グラフ表示')]
@@ -83,8 +83,36 @@ class Widget:
                                    ]
                                    )
 
+        frame_graph = sg.Frame('グラフの表示設定',
+                               [
+                                   [sg.Text('仰　角'),
+                                    sg.InputText(
+                                       0, size=(5, 1), key='-ELEV-'),
+                                    sg.Text('度')
+                                    ],
+                                   [sg.Text('方位角'),
+                                    sg.InputText(
+                                       0, size=(5, 1), key='-AZIM-'),
+                                    sg.Text('度')
+                                    ]
+                               ]
+                               )
+        
+        frame_theme_choice = sg.Frame('GUIデザインの変更',
+                                     [
+                                         [sg.Listbox(values=sg.theme_list(),
+                                                     size=(10, 3),
+                                                     key='-THEME-LIST-',
+                                                     enable_events=True)
+                                         ],
+                                         [sg.Button('プレビュー'), sg.Button('確定')],
+                                         
+                                     ])
+
         layout = [
-            [frame_read_file, frame_parameter],
+            [frame_read_file],
+            [frame_parameter, frame_graph],
+            [frame_theme_choice],
             [sg.Column(run_buttons_layout, justification='c')],
             [figure_canvas_control],
             [figure_canvas]
@@ -93,6 +121,6 @@ class Widget:
         return sg.Window("Friedmann Equations",
                          layout,
                          finalize=True,
-                         alpha_channel=0.9,
-                         size=(1500, 1000)
+                         alpha_channel=0.8,
+                         size=(1000, 1000)
                          )
