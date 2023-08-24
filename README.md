@@ -52,7 +52,7 @@ python universe.py
 
 2. モデルの選択
     - 設定ファイルが正常に読み込まれていれば，その下の「モデルを選択」のコンボボックスから宇宙モデルを選択することができます．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/d326d55c-86e4-4f54-81ec-21e98d331423">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/332a11e8-66cf-4329-91e3-90c153031e99)
 
 3. パラメーターの設定
     - モデルを選択すると，自動的にパラメータが設定されます．
