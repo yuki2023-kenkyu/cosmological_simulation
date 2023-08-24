@@ -20,11 +20,19 @@
 また、設定ファイルも必要であり、適切なフォーマットで提供されている必要があります。
 
 # インストール方法
+- gitをインストールします．
+    - 次のURLを参考にgitをインストールしてください．
+    - URL：[Git downloading Package](https://git-scm.com/download/win)
+- Pythonをインストールします．
+    - 以下のURLから「Python3.7」を選択し，「python-3.7.9-amd64.exe」をダウンロードしてください．
+    - URL：[非公式Pythonダウンロードリンク](https://pythonlinks.python.jp/ja/index.html)
+    - 以下のURLを参考にPythonのインストールを進めてください．
+    - URL：[Windows版Pythonのインストール](https://www.python.jp/install/windows/install.html)
 - git clone を行います．
 ```
 git clone https://github.com/yuki2023-kenkyu/cosmological_simulation/
 ```
-- 仮想環境を作成してライブラリをインストールします．
+- コマンドプロンプトを開き，仮想環境を作成してライブラリをインストールします．
 ```
 cd cosmological_simulation
 python -m venv myvenv
@@ -36,11 +44,11 @@ pip install -r requirements.txt
 python universe.py
 ```
 
-# 使用方法
+# アプリの操作方法
 1. 設定ファイルの読み込み
     - アプリケーションの起動後，まず設定ファイルを読み込みます．
     - 「Browse」ボタンをクリックし，「universe.py」と同じ階層に含まれている「config.ini」を選択してください．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/8c7f497c-3021-4a32-85c0-eaa53918be0c">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/6e7e9739-914d-4e1f-8222-7b78aaf34614)
 
 2. モデルの選択
     - 設定ファイルが正常に読み込まれていれば，その下の「モデルを選択」のコンボボックスから宇宙モデルを選択することができます．
