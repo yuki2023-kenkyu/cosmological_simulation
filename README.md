@@ -20,11 +20,19 @@
 また、設定ファイルも必要であり、適切なフォーマットで提供されている必要があります。
 
 # インストール方法
+- gitをインストールします．
+    - 次のURLを参考にgitをインストールしてください．
+    - URL：[Git downloading Package](https://git-scm.com/download/win)
+- Pythonをインストールします．
+    - 以下のURLから「Python3.7」を選択し，「python-3.7.9-amd64.exe」をダウンロードしてください．
+    - URL：[非公式Pythonダウンロードリンク](https://pythonlinks.python.jp/ja/index.html)
+    - 以下のURLを参考にPythonのインストールを進めてください．
+    - URL：[Windows版Pythonのインストール](https://www.python.jp/install/windows/install.html)
 - git clone を行います．
 ```
 git clone https://github.com/yuki2023-kenkyu/cosmological_simulation/
 ```
-- 仮想環境を作成してライブラリをインストールします．
+- コマンドプロンプトを開き，仮想環境を作成してライブラリをインストールします．
 ```
 cd cosmological_simulation
 python -m venv myvenv
@@ -36,36 +44,36 @@ pip install -r requirements.txt
 python universe.py
 ```
 
-# 使用方法
+# アプリの操作方法
 1. 設定ファイルの読み込み
     - アプリケーションの起動後，まず設定ファイルを読み込みます．
     - 「Browse」ボタンをクリックし，「universe.py」と同じ階層に含まれている「config.ini」を選択してください．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/8c7f497c-3021-4a32-85c0-eaa53918be0c">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/1b72cdf6-16e3-4c57-a283-3044a758ef25)
 
 2. モデルの選択
     - 設定ファイルが正常に読み込まれていれば，その下の「モデルを選択」のコンボボックスから宇宙モデルを選択することができます．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/d326d55c-86e4-4f54-81ec-21e98d331423">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/332a11e8-66cf-4329-91e3-90c153031e99)
 
 3. パラメーターの設定
     - モデルを選択すると，自動的にパラメータが設定されます．
     - スライダーを動かしたり，あるいはテキストボックスに半角数字を打ち込むことによってもパラメーターを設定できます．
     - sigma_0の値の範囲は0.0 ~ 1.5，q_0の値の範囲は-2.0 ~ 2.0となっていることに注意してください．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/ecb2ae8a-3cc1-414b-9f79-81bc92c6b869">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/14dc20d1-6325-461b-9f49-c98de5e416c3)
 
 4. 計算の実行
     - 下にある実行ボタンをクリックすると計算が開始します．
     - 計算終了後，「計算が実行されました。」というポップアップが表示されるので，OKボタンをクリックしてください．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/6d41fab8-b2ed-4601-9a5b-805621246a93">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/53af72a4-5880-479b-b46f-45323e1d9e66)
 
 5. グラフの表示
     - 計算実行後，グラフ表示ボタンをクリックすることで，ボタン下に宇宙モデルの３次元グラフの画像が表示されます．
     - グラフ上でマウスをドラッグするなどするとグラフをぐりぐり動かすことができます．
-<img width="503" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/e92e83d9-bce5-42ec-bbf0-20643f2c4235">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/1e829851-7a68-4fd4-b994-f68a78381710)
 
 6. 画像の保存
     - 画像を保存する際はグラフの左上にあるツールバーの右端にある保存アイコンをクリックしてください．
     - 保存先を選択し，名前を入力すれば完了です．
-<img width="634" alt="image" src="https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/9898378a-0f1a-40de-a39d-bba96b880fbf">
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/0f2de47b-fbc5-432c-be47-05aa3c1e3fac)
 
 7. アプリの終了
     - アプリを終了する際は，右上の✕をクリックするか，実行ボタンの隣にある中止ボタンをクリックしてください．
