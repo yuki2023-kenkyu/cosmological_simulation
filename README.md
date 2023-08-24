@@ -48,7 +48,7 @@ python universe.py
 1. 設定ファイルの読み込み
     - アプリケーションの起動後，まず設定ファイルを読み込みます．
     - 「Browse」ボタンをクリックし，「universe.py」と同じ階層に含まれている「config.ini」を選択してください．
-![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/6e7e9739-914d-4e1f-8222-7b78aaf34614)
+![image](https://github.com/yuki2023-kenkyu/cosmological_simulation/assets/124911019/1b72cdf6-16e3-4c57-a283-3044a758ef25)
 
 2. モデルの選択
     - 設定ファイルが正常に読み込まれていれば，その下の「モデルを選択」のコンボボックスから宇宙モデルを選択することができます．
