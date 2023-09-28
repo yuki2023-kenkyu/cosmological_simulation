@@ -1,0 +1,23 @@
+﻿name: bamba
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter=1.0.0
+  - jupyterlab=3.5.3
+  - matplotlib=3.5.2
+  - notebook=6.5.2
+  - numpy=1.21.5
+  - pip=22.3.1
+  - pysimplegui=4.60.4
+  - python=3.7.16
+  - python-dateutil=2.8.2
+  - pytz=2022.7
+  - scipy=1.7.3
+  - seaborn=0.10.1
+  - setuptools=65.6.3
+  - tk=8.6.12
+  - pip:
+    - cx-freeze==6.14.9
+    - pyinstaller==5.13.0
+    - pillow==8.2.0
