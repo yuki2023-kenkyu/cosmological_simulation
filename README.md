@@ -1,4 +1,5 @@
 # cosmological_simulation
+## Author:Yuki Hashimoto, Fukushima University
 このパッケージは、GUIを使用してフリードマン方程式を計算し、結果をグラフとして表示するシミュレーションプログラムです。
 
 メイン実行部分のプログラムは`universe.py`です。
