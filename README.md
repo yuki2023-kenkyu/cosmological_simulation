@@ -1,5 +1,5 @@
 # cosmological_simulation
-## Author:Yuki Hashimoto, Fukushima University (最終更新：2024/2/13)
+## Author:Yuki Hashimoto, Fukushima University
 このパッケージは、GUIを使用してフリードマン方程式を計算し、結果をグラフとして表示するシミュレーションプログラムです。
 
 URL:https://github.com/yuki2023-kenkyu/cosmological_simulation/
